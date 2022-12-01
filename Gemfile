@@ -15,6 +15,10 @@ gem "puma", "~> 5.0"
 # Fix cors
 gem 'rack-cors', require: 'rack/cors'
 
+# Use devise and devise-jwt for auth
+gem "devise"
+gem "devise-jwt"
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
