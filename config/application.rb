@@ -23,12 +23,8 @@ module QbankApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
-    
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins /\Ahttp:\/\/localhost:\d+\z/
-        resource '*', headers: :any, methods: :any
-      end
-    end
+    config.session_store :cookie_store, key: '_interslice_session'
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use config.session_store, config.session_options
   end
 end
